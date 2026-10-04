@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feliz Cumpleaños Brenda</title>
+<style>
+  :root { --gold:#e8c56b; --ink:#2a160f; --blush:#f6d5df; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; min-height:100vh; color:var(--ink);
+    font-family: Georgia, "Times New Roman", serif;
+    background: radial-gradient(circle at top, #fff6ea, #f6d5df 42%, #f3e0b8);
+    overflow-x:hidden;
+  }
+  .wrap { max-width:820px; margin:0 auto; padding:56px 20px 80px; text-align:center; position:relative; z-index:1; }
+  .eyebrow { letter-spacing:.28em; text-transform:uppercase; color:#a56b4a; font-size:.78rem; margin:0 0 10px; }
+  h1 { font-size:clamp(2.4rem,7vw,4.6rem); margin:0; color:#8a5524; line-height:.95; text-shadow:0 2px 0 #fff; }
+  h1 span { display:block; font-size:.62em; letter-spacing:.04em; margin-top:8px; }
+  .sub { color:#a56b7a; font-size:1.2rem; margin:14px 0 28px; }
+  .card {
+    background:rgba(255,255,255,.74); border:1px solid rgba(212,175,55,.5);
+    border-radius:24px; padding:28px 22px 32px;
+    box-shadow:0 18px 50px rgba(120,70,40,.12);
+  }
+  audio { width:min(100%,520px); margin:8px 0 4px; }
+  button {
+    background:#8a5524; color:#fff; border:0; border-radius:999px;
+    padding:12px 22px; font-size:1rem; cursor:pointer; margin-top:8px;
+  }
+  .lyrics, .msgs { text-align:left; margin-top:26px; }
+  .lyrics p { line-height:1.6; }
+  .msgs article {
+    background:#fff; border-radius:16px; padding:14px 16px; margin:10px 0;
+    border-left:4px solid var(--gold);
+  }
+  .confetti i {
+    position:fixed; top:-16px; width:8px; height:14px; opacity:.75;
+    animation:fall linear infinite; z-index:0; border-radius:2px;
+  }
+  @keyframes fall { to { transform:translateY(110vh) rotate(360deg); } }
+  footer { margin-top:26px; color:#8a6a55; }
+</style>
+</head>
+<body>
+<div class="confetti" id="c"></div>
+<div class="wrap">
+  <p class="eyebrow">Para Brenda</p>
+  <h1>Feliz cumpleaños <span>Brenda</span></h1>
+  <p class="sub">Tu mirada sana · que suene el acordeón</p>
+  <div class="card">
+    <p>Dale play. Caja, acordeón y guacharaca, para ti.</p>
+    <audio id="song" controls preload="metadata" src="brenda.mp3"></audio>
+    <div><button type="button" onclick="document.getElementById('song').play()">Escuchar la canción</button></div>
+    <div class="lyrics">
+      <h2>De la canción</h2>
+      <p>¡Feliz cumpleaños Brenda!<br>
+      Llegaste a mi vida como bendición, cambiaste la suerte de mi corazón.<br>
+      Tu mirada limpia cura mi dolor, tu risa traviesa borra la aflicción.<br>
+      Porque con tus ojos sanas la tristeza, tienes en tu alma pura delicadeza.<br>
+      Esa sonrisita me llena la vida, eres en mi cielo la luz encendida.<br>
+      Gracias a la vida por ponerte aquí, solo vivo para hacerte sonreír.</p>
+    </div>
+    <div class="msgs">
+      <h2>Felicidades</h2>
+      <article><strong>Que este año te atienda la vida.</strong><p>Que cada despertar te encuentre sonriendo.</p></article>
+      <article><strong>Por tu presencia.</strong><p>No hay nada más bello que verte sonreír.</p></article>
+      <article><strong>Miel y ternura.</strong><p>Que el camino se te ponga sabroso.</p></article>
+      <article><strong>Siempre tuya esta canción.</strong><p>Contigo todo es felicidad.</p></article>
+    </div>
+  </div>
+  <footer>Feliz cumpleaños, Brenda.</footer>
+</div>
+<script>
+const colors=["#d4af37","#f7d6e0","#fff","#e7b7c6","#c9843b"];
+const box=document.getElementById("c");
+for(let i=0;i<36;i++){
+  const s=document.createElement("i");
+  s.style.left=Math.random()*100+"vw";
+  s.style.background=colors[i%colors.length];
+  s.style.animationDuration=(6+Math.random()*8)+"s";
+  s.style.animationDelay=(-Math.random()*8)+"s";
+  box.appendChild(s);
+}
+</script>
+</body>
+</html>
